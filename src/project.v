@@ -37,6 +37,6 @@ module tt_um_contador_display (
         
     );
   // List all unused inputs to prevent warnings
-    wire _unused = &{ena, uio_in [7:0], ui_in [7:0], uio_oe [6:0], 1'b0};
+    wire _unused = &{ena, uio_out [3:0], uio_in [7:0], ui_in [7:0], uio_oe [6:0], 1'b0};
 
 endmodule
