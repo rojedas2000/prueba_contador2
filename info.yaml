@@ -5,7 +5,7 @@ project:
   discord:      "lilfrod"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "Contador de 0 a 255"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     250       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:     250000000       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
@@ -35,14 +35,14 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "D1"
+  uo[1]: "D2"
+  uo[2]: "D3"
+  uo[3]: "D4"
+  uo[4]: "D5"
+  uo[5]: "D6"
+  uo[6]: "D7"
+  uo[7]: "D8"
 
   # Bidirectional pins
   uio[0]: ""
