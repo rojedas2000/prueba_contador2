@@ -23,7 +23,7 @@ always@(posedge clk)begin
       4'd7:    disp_code = 8'b1_1111000; // 7
       4'd8:    disp_code = 8'b1_0000000; // 8
       4'd9:    disp_code = 8'b1_0010000; // 9
-        default: disp_code = 8'b1_1111111; // Apagado
+        default: disp_code <= 8'b1_1111111; // Apagado
 	
 	endcase
 	
@@ -31,5 +31,6 @@ always@(posedge clk)begin
 end
 
 assign disp_code_out = disp_code;
+
 
 endmodule
