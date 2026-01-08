@@ -24,6 +24,7 @@ module tt_um_contador_display (
 
     wire [7:0] segmentos;
     wire [3:0] sel_seg;
+    wire [7:0] contador_reg;
 
     assign uo_out [7:0] = segmentos;
     assign uio_out [7:4] = sel_seg;
@@ -33,7 +34,8 @@ module tt_um_contador_display (
         .clk(clk),
         .rst(rst_n),
         .segmentos(segmentos),
-        .sel_seg(sel_seg)
+        .sel_seg(sel_seg),
+        .contador_reg(contador_reg)
         
     );
   // List all unused inputs to prevent warnings
