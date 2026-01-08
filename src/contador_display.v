@@ -4,7 +4,7 @@ module contador_display(
     input rst,          // Reset
     output [7:0] segmentos, 
     output [3:0] sel_seg,
-	 output [7:0] contador_reg
+	 //output [7:0] contador_reg
 );
 
 //divisor de reloj
@@ -91,6 +91,7 @@ end
 
 assign segmentos = r_segmentos;
 assign sel_seg   = r_sel_seg;
-assign contador_reg = bit_count;
+//assign contador_reg = bit_count;
+
 
 endmodule
