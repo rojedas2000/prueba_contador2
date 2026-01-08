@@ -35,7 +35,7 @@ module tt_um_contador_display (
         .clk(clk),
         .rst(rst_n),
         .segmentos(segmentos),
-        .sel_seg(sel_seg),
+        .sel_seg(sel_seg)
         //.contador_reg(contador_reg)
         
     );
