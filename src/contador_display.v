@@ -3,7 +3,7 @@ module contador_display(
     input clk,          // Reloj de 50MHz
     input rst,          // Reset
     output [7:0] segmentos, 
-    output [3:0] sel_seg,
+    output [3:0] sel_seg
 	 //output [7:0] contador_reg
 );
 
@@ -33,9 +33,10 @@ always @(posedge clk_4hz or negedge rst) begin
 end
 
 
-wire [3:0] uni = (bit_count % 10)[3:0]; // la unidad es el sobrante de dividir entre 10
-wire [3:0] dec = ((bit_count / 10) % 10)[3:0]; //las decenas el sobrante de dividir entre 100
-wire [3:0] cen = (bit_count / 100)[3:0]; //las centenas solo son dividir entre 100
+	wire [3:0] uni, dec, cen;	
+assign uni = (bit_count % 10)[3:0]; // la unidad es el sobrante de dividir entre 10
+assign dec = ((bit_count / 10) % 10)[3:0]; //las decenas el sobrante de dividir entre 100
+assign cen = (bit_count / 100)[3:0]; //las centenas solo son dividir entre 100
 
 // reloj 1kHz para display
 reg [15:0] clk_disp;
@@ -95,3 +96,4 @@ assign sel_seg   = r_sel_seg;
 
 
 endmodule
+
