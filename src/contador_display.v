@@ -36,6 +36,7 @@ end
 	wire [3:0] uni, dec, cen;
 
 	always@(*)begin
+		/* verilator lint_off WIDTHTRUNC */
 assign tmp_uni = (bit_count % 10); // la unidad es el sobrante de dividir entre 10
 assign tmp_dec = ((bit_count / 10) % 10); //las decenas el sobrante de dividir entre 100
 assign tmp_cen = (bit_count / 100); //las centenas solo son dividir entre 100
@@ -103,6 +104,7 @@ assign sel_seg   = r_sel_seg;
 
 
 endmodule
+
 
 
 
