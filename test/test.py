@@ -4,9 +4,30 @@
 import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles
+from cocotb.result import TestFailure
 
+clk_period = 100 
 
 @cocotb.test()
+
+async def test_counter_reset(dut):
+    dut._log.info("Iniciando testb del reset")
+    #configurando relog 
+    clock = Clock(dut.clk, clk_period, unit="ns")
+    cocotb.start_soon(clock.start())
+    #reset activo en bajo
+    dut.rst_n.value=0
+    await ClockCycles(dut.clk, 2)
+    #liberar el rst
+    dut.rst_n.value=1
+    await ClockCycles(dut.clk, 1)
+
+    #poniendo assertion
+    if dut.c.value.integer !=0:
+        raise TestFailure(f"el contador no se reseteo. valor={dut.c.value}")
+    else 
+        dut._log.info("si jalo")
+
 async def test_project(dut):
     dut._log.info("Start")
 
