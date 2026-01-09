@@ -32,15 +32,17 @@ always @(posedge clk_4hz or negedge rst) begin
     else bit_count <= bit_count + 1'b1;
 end
 
-	wire [7:0] tmp_uni, tmp_dec, tmp_cen;
-	wire [3:0] uni, dec, cen;	
+	reg [3:0] tmp_uni, tmp_dec, tmp_cen;
+	wire [3:0] uni, dec, cen;
+
+	always@(*)begin
 assign tmp_uni = (bit_count % 10); // la unidad es el sobrante de dividir entre 10
 assign tmp_dec = ((bit_count / 10) % 10); //las decenas el sobrante de dividir entre 100
 assign tmp_cen = (bit_count / 100); //las centenas solo son dividir entre 100
-
-assign uni = tmp_uni [3:0];
-assign dec = tmp_dec [3:0];
-assign cen = tmp_cen [3:0];
+	end
+assign uni = tmp_uni;
+assign dec = tmp_dec;
+assign cen = tmp_cen;
 
 
 // reloj 1kHz para display
@@ -101,6 +103,7 @@ assign sel_seg   = r_sel_seg;
 
 
 endmodule
+
 
 
 
