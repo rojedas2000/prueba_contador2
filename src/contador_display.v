@@ -34,9 +34,8 @@ end
 
 	reg [3:0] tmp_uni, tmp_dec, tmp_cen;
 	wire [3:0] uni, dec, cen;
-
+/* verilator lint_off WIDTHTRUNC */
 	always@(*)begin
-		/* verilator lint_off WIDTHTRUNC */
 tmp_uni = (bit_count % 10); // la unidad es el sobrante de dividir entre 10
 tmp_dec = ((bit_count / 10) % 10); //las decenas el sobrante de dividir entre 100
 tmp_cen = (bit_count / 100); //las centenas solo son dividir entre 100
@@ -61,18 +60,18 @@ wire [7:0] cod_uni, cod_dec, cod_cen;
 
 nibble_encoder inst_u (
 	.nibble_in(uni),
-	.disp_code_out(cod_uni),
-	.clk(clk)
+	.disp_code_out(cod_uni)
+	//.clk(clk)
 );
 nibble_encoder inst_d (
 	.nibble_in(dec), 
-	.disp_code_out(cod_dec), 
-	.clk(clk)
+	.disp_code_out(cod_dec)
+	//.clk(clk)
 );
 nibble_encoder inst_c (
 	.nibble_in(cen), 
-	.disp_code_out(cod_cen), 
-	.clk(clk)
+	.disp_code_out(cod_cen)
+	//.clk(clk)
 );
 
 reg [7:0] r_segmentos;
@@ -105,6 +104,7 @@ assign sel_seg   = r_sel_seg;
 
 
 endmodule
+
 
 
 
