@@ -33,9 +33,9 @@ always @(posedge clk_4hz or negedge rst) begin
 end
 
 
-wire [3:0] uni = bit_count % 10; // la unidad es el sobrante de dividir entre 10
-wire [3:0] dec = (bit_count / 10) % 10; //las decenas el sobrante de dividir entre 100
-wire [3:0] cen = (bit_count / 100); //las centenas solo son dividir entre 100
+wire [3:0] uni = (bit_count % 10)[3:0]; // la unidad es el sobrante de dividir entre 10
+wire [3:0] dec = ((bit_count / 10) % 10)[3:0]; //las decenas el sobrante de dividir entre 100
+wire [3:0] cen = (bit_count / 100)[3:0]; //las centenas solo son dividir entre 100
 
 // reloj 1kHz para display
 reg [15:0] clk_disp;
