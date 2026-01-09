@@ -32,7 +32,7 @@ always @(posedge clk_4hz or negedge rst) begin
     else bit_count <= bit_count + 1'b1;
 end
 
-	wire [7:0] tmp_uni, tmp_dec, tmp_dec;
+	wire [7:0] tmp_uni, tmp_dec, tmp_cen;
 	wire [3:0] uni, dec, cen;	
 assign tmp_uni = (bit_count % 10); // la unidad es el sobrante de dividir entre 10
 assign tmp_dec = ((bit_count / 10) % 10); //las decenas el sobrante de dividir entre 100
@@ -101,6 +101,7 @@ assign sel_seg   = r_sel_seg;
 
 
 endmodule
+
 
 
 
