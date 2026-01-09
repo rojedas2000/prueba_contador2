@@ -1,5 +1,5 @@
 module nibble_encoder(
-	input clk,
+	//input clk,
 	input [3:0] nibble_in,
 	output [7:0] disp_code_out
 );
@@ -9,7 +9,7 @@ reg [7:0] disp_code;
 //assign nibble = nibble_in;
 
 
-always@(posedge clk)begin
+	always@(*)begin
 
 	case(nibble_in)
 	
@@ -34,4 +34,5 @@ assign disp_code_out = disp_code;
 
 
 endmodule
+
 
