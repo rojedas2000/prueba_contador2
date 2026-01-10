@@ -23,8 +23,8 @@ async def test_counter_reset(dut):
     await ClockCycles(dut.clk, 1)
 
     #poniendo assertion
-    if dut.c.value.integer !=0:
-        raise TestFailure(f"el contador no se reseteo. valor={dut.c.value}")
+    if dut.segmentos.value.integer !=0:
+        raise TestFailure(f"el contador no se reseteo. valor={dut.segmentos.value}")
     else 
         dut._log.info("si jalo")
 
